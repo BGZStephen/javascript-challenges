@@ -1,4 +1,4 @@
-// JavaScriot Functions - 1
+// JavaScript Functions - 1
 
 // 1. Write a JavaScript function that reverse a number.
 // Example x = 32243;
