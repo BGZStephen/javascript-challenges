@@ -4,11 +4,10 @@
 // Sample Output : Today is : Friday.
 // Current time is : 4 PM : 50 : 22
 
-  let dayArray = [`Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`]
+  let dayArray = [`Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`]
 
   let currentDate = new Date(); // set date string
   let currentDay = currentDate.getDay();
-  currentDay -= 1; // reduce day by 1 to allow for matching with array
   currentDay = dayArray[currentDay];
 
   let currentTime = currentDate.toTimeString(); // parse currentDate to a time string
