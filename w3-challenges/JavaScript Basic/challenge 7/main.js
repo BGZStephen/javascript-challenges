@@ -7,7 +7,7 @@ let minDate = 2014;
 let maxDate = 2050;
 let htmlOutput = `<p>The following years first days are Sunday</p>`
 
-for(minDate; minDate < maxDate; minDate ++) {
+for(minDate; minDate <= maxDate; minDate ++) {
   minDate = minDate.toString(); // set to string to allow for use in new Date function
   let dateToCheck = new Date(minDate)
   let dayToCheck = dateToCheck.getDay();
