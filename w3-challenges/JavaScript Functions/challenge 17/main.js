@@ -15,21 +15,21 @@ input.addEventListener(`keyup`, () => {
 })
 
 button.addEventListener(`click`, () => {
-  let uniqueChars = []
+  outputString = ''
+  let chars = []
   let occurances;
   let newreg;
-  let splitString = string.split(``) // split string to an Array
+  let splitString = string.split(``)
   for(let i = 0; i < splitString.length; i++) {
-    if(uniqueChars.indexOf(splitString[i]) == -1) { // iterate over all characters within the string, if they don't exist within the unique characters array, add them.
-      newreg = new RegExp(splitString[i], `g`);
-      occurances = string.match(newreg).length;
-      uniqueChars.push(splitString[i], occurances);
+    if(chars.indexOf(splitString[i]) == -1) {
+      newreg = new RegExp(splitString[i], `g`); // set new regular to use the value of splitstring[i] which will change over iterations
+      occurances = string.match(newreg).length; // match string using defined regular expression and return the length to signify times [i] occurs
+      chars.push(splitString[i], occurances); // push items to array, I would have nested an array with both values, but this messes up checking if a character already exists in the array
     }
   }
-  for(let j = 0; j < uniqueChars.length; j+= 2) {
-    let k = j + 1;
-    outputString += `<p>` + uniqueChars[j] + ` - ` + uniqueChars[k] + `</p>`
+  for(let j = 0; j < chars.length; j+= 2) { // increment for loop by 2 as the above push puts both values in the same level of the array
+    let k = j + 1; // as j is incremented by 2, set k as j+1 to reference the following item in the array, which will always be the occurances variable
+    outputString += `<p>` + chars[j] + ` - ` + chars[k] + `</p>`
   }
-  console.log(uniqueChars)
   output.innerHTML = outputString;
 })
