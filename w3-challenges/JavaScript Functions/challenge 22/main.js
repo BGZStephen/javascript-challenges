@@ -24,11 +24,17 @@ inputTwo.addEventListener(`keyup`, () => {
 
 button.addEventListener(`click`, () => {
   checkString(string, checker)
-  outputString = `<p>The string contains ${occurances} occurances of ${checker}</p>`
-  output.innerHTML = outputString;
+
 })
 
 const checkString = (string, checker) => {
   let checkerRegExp = new RegExp(checker, `g`);
-  occurances = string.match(checkerRegExp).length;
+  occurances = string.match(checkerRegExp);
+  if(occurances == null) {
+    outputString = `<p>Unfortunately ${checker} doesn't exist within the string entered</p>`
+  } else {
+    occurances = string.match(checkerRegExp).length;
+    outputString = `<p>The string contains ${occurances} occurances of ${checker}</p>`
+  }
+  output.innerHTML = outputString;
 }
